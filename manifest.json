@@ -1,0 +1,45 @@
+{
+  "name": "iBux — AI Landing Page Builder",
+  "short_name": "iBux",
+  "description": "AI-powered landing page builder for eCommerce merchants. Generate high-converting pages in any language.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b12",
+  "theme_color": "#7c3aed",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "iBux Desktop"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "iBux Mobile"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
