@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO -->
+  <title>iBux – AI Landing Page Builder for eCommerce | High-Converting Pages in Any Language</title>
+  <meta name="description" content="iBux is the AI-powered landing page builder for Shopify, WooCommerce, Amazon, TikTok Shop & dropshippers. Generate high-converting product pages, sales funnels & SEO content in 7+ languages instantly." />
+  <meta name="keywords" content="landing page builder, AI landing pages, eCommerce landing page creator, AI copywriting, conversion optimization, product page builder, sales funnel builder, Shopify landing page, WooCommerce builder" />
+  <meta name="author" content="iBux" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ibux.xyz/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ibux.xyz/" />
+  <meta property="og:title" content="iBux – AI Landing Page Builder for eCommerce" />
+  <meta property="og:description" content="Generate high-converting landing pages in any language using AI. Built for Shopify, WooCommerce, Amazon & TikTok Shop sellers." />
+  <meta property="og:image" content="https://ibux.xyz/og-image.png" />
+  <meta property="og:site_name" content="iBux" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ibuxai" />
+  <meta name="twitter:title" content="iBux – AI Landing Page Builder for eCommerce" />
+  <meta name="twitter:description" content="Generate high-converting landing pages in any language using AI." />
+  <meta name="twitter:image" content="https://ibux.xyz/og-image.png" />
+
+  <!-- Schema.org SoftwareApplication + SaaS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "iBux",
+    "url": "https://ibux.xyz",
+    "description": "AI-powered landing page builder for eCommerce merchants. Generate high-converting pages in any language.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Starter", "price": "29", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Professional", "price": "79", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Agency", "price": "199", "priceCurrency": "USD" }
+    ],
+    "creator": { "@type": "Organization", "name": "iBux", "url": "https://ibux.xyz" }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">iBux</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#templates">Templates</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#languages">Languages</a>
+        <a href="#builder" class="nav-cta-link">Launch Builder</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <div class="lang-selector">
+          <button class="lang-btn" id="langBtn">
+            <i class="fas fa-globe"></i>
+            <span id="currentLang">EN</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button onclick="setLanguage('en')">🇺🇸 English</button>
+            <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
+            <button onclick="setLanguage('fr')">🇫🇷 Français</button>
+            <button onclick="setLanguage('es')">🇪🇸 Español</button>
+            <button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+            <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+            <button onclick="setLanguage('it')">🇮🇹 Italiano</button>
+          </div>
+        </div>
+        <a href="#builder" class="btn btn-primary">Start Free</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+    </div>
+
+    <div class="hero-container">
+      <div class="hero-badge" data-i18n="hero_badge">
+        <span class="badge-dot"></span>
+        <span>AI-Powered · 7 Languages · Built for eCommerce</span>
+      </div>
+
+      <h1 class="hero-title" data-i18n="hero_title">
+        Build Landing Pages<br />
+        That <span class="text-gradient">Actually Convert</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        iBux uses advanced AI to generate high-converting eCommerce landing pages in any language — in seconds. Perfect for Shopify, WooCommerce, Amazon, TikTok Shop & more.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#builder" class="btn btn-primary btn-xl">
+          <i class="fas fa-wand-magic-sparkles"></i>
+          <span data-i18n="hero_cta_primary">Build My Landing Page</span>
+        </a>
+        <button class="btn btn-ghost btn-xl" onclick="showDemo()">
+          <i class="fas fa-play-circle"></i>
+          <span data-i18n="hero_cta_secondary">Watch Demo</span>
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">50K+</span>
+          <span class="stat-label" data-i18n="stat_merchants">Merchants</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">2M+</span>
+          <span class="stat-label" data-i18n="stat_pages">Pages Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label" data-i18n="stat_languages">Languages</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">340%</span>
+          <span class="stat-label" data-i18n="stat_conversion">Avg. Conversion Lift</span>
+        </div>
+      </div>
+
+      <div class="hero-logos">
+        <span data-i18n="trusted_by">Trusted by sellers on</span>
+        <div class="logo-row">
+          <span class="platform-badge"><i class="fas fa-store"></i> Shopify</span>
+          <span class="platform-badge"><i class="fab fa-wordpress"></i> WooCommerce</span>
+          <span class="platform-badge"><i class="fab fa-amazon"></i> Amazon</span>
+          <span class="platform-badge"><i class="fab fa-tiktok"></i> TikTok Shop</span>
+          <span class="platform-badge"><i class="fas fa-link"></i> Affiliate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="features_tag">CORE FEATURES</span>
+        <h2 class="section-title" data-i18n="features_title">Everything You Need to<br /><span class="text-gradient">Dominate eCommerce</span></h2>
+        <p class="section-subtitle" data-i18n="features_subtitle">A complete AI-powered toolkit built exclusively for eCommerce merchants who want more conversions, faster.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card feature-card--large">
+          <div class="feature-icon-wrap"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <h3 data-i18n="feat1_title">AI Landing Page Generator</h3>
+          <p data-i18n="feat1_desc">Generate complete, high-converting landing pages in seconds. Product pages, sales funnels, lead gen, webinars, affiliate pages — all powered by AI.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> <span data-i18n="feat1_li1">Product landing pages</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="feat1_li2">Lead generation pages</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="feat1_li3">Sales & webinar pages</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="feat1_li4">Affiliate landing pages</span></li>
+          </ul>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-pen-fancy"></i></div>
+          <h3 data-i18n="feat2_title">AI Copywriter</h3>
+          <p data-i18n="feat2_desc">Generate compelling headlines, product descriptions, CTAs, sales copy, and SEO content in any language — automatically.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-language"></i></div>
+          <h3 data-i18n="feat3_title">7 Language Support</h3>
+          <p data-i18n="feat3_desc">Reach global markets. Generate landing pages in Arabic, English, French, Spanish, German, Portuguese, and Italian with native-quality copy.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-chart-line"></i></div>
+          <h3 data-i18n="feat4_title">Conversion Optimization</h3>
+          <p data-i18n="feat4_desc">Built-in trust badges, testimonials, scarcity blocks, social proof, A/B testing UI & high-converting layouts to maximize your sales.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-search"></i></div>
+          <h3 data-i18n="feat5_title">SEO Toolkit</h3>
+          <p data-i18n="feat5_desc">Meta title & description generator, keyword suggestions, SEO scoring, structured data, and sitemap generation built right in.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-shopping-bag"></i></div>
+          <h3 data-i18n="feat6_title">eCommerce Tools</h3>
+          <p data-i18n="feat6_desc">Product page generator, upsell/cross-sell sections, checkout optimization, offer builder, and discount campaign tools.</p>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap"><i class="fas fa-chart-pie"></i></div>
+          <h3 data-i18n="feat7_title">Analytics Dashboard</h3>
+          <p data-i18n="feat7_desc">Track your landing page performance with conversion rates, traffic sources, A/B test results, and detailed performance reports.</p>
+        </div>
+
+        <!-- Feature 8 - Large -->
+        <div class="feature-card feature-card--large">
+          <div class="feature-icon-wrap"><i class="fas fa-robot"></i></div>
+          <h3 data-i18n="feat8_title">AI Business Assistant</h3>
+          <p data-i18n="feat8_desc">Your 24/7 AI marketing consultant. Get personalized recommendations to improve conversions, SEO, product pages, and marketing campaigns.</p>
+          <div class="ai-chat-preview">
+            <div class="chat-msg ai"><i class="fas fa-robot"></i> <span>Your product page headline could be stronger. Try: "Lose 10 lbs in 30 Days — Guaranteed"</span></div>
+            <div class="chat-msg user"><i class="fas fa-user"></i> <span>Can you also optimize the CTA button?</span></div>
+            <div class="chat-msg ai typing"><i class="fas fa-robot"></i> <span class="dots"><span></span><span></span><span></span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ AI BUILDER ═══════════════════════════ -->
+  <section class="builder-section" id="builder">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">AI BUILDER</span>
+        <h2 class="section-title">Generate Your Landing Page<br /><span class="text-gradient">in Seconds</span></h2>
+        <p class="section-subtitle">Fill in your product details and let our AI create a complete, high-converting landing page instantly.</p>
+      </div>
+
+      <div class="builder-wrapper">
+        <div class="builder-panel">
+          <!-- Step Indicator -->
+          <div class="steps-indicator">
+            <div class="step active" data-step="1"><span class="step-num">1</span><span class="step-label">Product Info</span></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2"><span class="step-num">2</span><span class="step-label">Page Type</span></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3"><span class="step-num">3</span><span class="step-label">AI Generate</span></div>
+          </div>
+
+          <!-- Step 1: Product Info -->
+          <div class="builder-step active" id="step1">
+            <h3 class="step-title">Tell us about your product</h3>
+            <div class="form-group">
+              <label>Product Name *</label>
+              <input type="text" id="productName" placeholder="e.g. ProSlim Weight Loss Supplement" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label>Product Category *</label>
+              <select id="productCategory" class="form-input">
+                <option value="">Select category...</option>
+                <option value="health">Health & Fitness</option>
+                <option value="beauty">Beauty & Skincare</option>
+                <option value="fashion">Fashion & Apparel</option>
+                <option value="electronics">Electronics & Tech</option>
+                <option value="home">Home & Garden</option>
+                <option value="automotive">Automotive</option>
+                <option value="education">Education & Courses</option>
+                <option value="saas">Software & SaaS</option>
+                <option value="finance">Finance & Investing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Key Benefits (one per line)</label>
+              <textarea id="productBenefits" placeholder="Burns fat 3x faster&#10;No side effects&#10;Doctor approved&#10;60-day money back guarantee" class="form-input form-textarea" rows="4"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Target Price</label>
+                <input type="text" id="productPrice" placeholder="$49.99" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Target Language</label>
+                <select id="targetLanguage" class="form-input">
+                  <option value="en">🇺🇸 English</option>
+                  <option value="ar">🇸🇦 Arabic</option>
+                  <option value="fr">🇫🇷 French</option>
+                  <option value="es">🇪🇸 Spanish</option>
+                  <option value="de">🇩🇪 German</option>
+                  <option value="pt">🇧🇷 Portuguese</option>
+                  <option value="it">🇮🇹 Italian</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="nextStep(2)">
+              Next: Choose Page Type <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Step 2: Page Type -->
+          <div class="builder-step" id="step2">
+            <h3 class="step-title">Select your page type</h3>
+            <div class="page-type-grid">
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="product" />
+                <div class="page-type-content">
+                  <i class="fas fa-box-open"></i>
+                  <span>Product Page</span>
+                </div>
+              </label>
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="sales" />
+                <div class="page-type-content">
+                  <i class="fas fa-dollar-sign"></i>
+                  <span>Sales Page</span>
+                </div>
+              </label>
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="lead" />
+                <div class="page-type-content">
+                  <i class="fas fa-envelope"></i>
+                  <span>Lead Gen</span>
+                </div>
+              </label>
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="webinar" />
+                <div class="page-type-content">
+                  <i class="fas fa-video"></i>
+                  <span>Webinar</span>
+                </div>
+              </label>
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="affiliate" />
+                <div class="page-type-content">
+                  <i class="fas fa-handshake"></i>
+                  <span>Affiliate</span>
+                </div>
+              </label>
+              <label class="page-type-card">
+                <input type="radio" name="pageType" value="service" />
+                <div class="page-type-content">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Service</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="form-group" style="margin-top:1.5rem">
+              <label>Platform</label>
+              <div class="platform-chips">
+                <label class="chip"><input type="radio" name="platform" value="shopify" checked /><span><i class="fas fa-store"></i> Shopify</span></label>
+                <label class="chip"><input type="radio" name="platform" value="woocommerce" /><span><i class="fab fa-wordpress"></i> WooCommerce</span></label>
+                <label class="chip"><input type="radio" name="platform" value="amazon" /><span><i class="fab fa-amazon"></i> Amazon</span></label>
+                <label class="chip"><input type="radio" name="platform" value="tiktok" /><span><i class="fab fa-tiktok"></i> TikTok</span></label>
+                <label class="chip"><input type="radio" name="platform" value="other" /><span><i class="fas fa-globe"></i> Other</span></label>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-ghost" onclick="nextStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="nextStep(3)">Next: Generate <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 3: Generate -->
+          <div class="builder-step" id="step3">
+            <h3 class="step-title">AI is building your page</h3>
+
+            <div class="generation-options">
+              <div class="form-group">
+                <label>Additional Instructions (optional)</label>
+                <textarea id="additionalInstructions" placeholder="e.g. Include before/after testimonials, add a 24-hour countdown timer, make it suitable for Facebook Ads traffic..." class="form-input form-textarea" rows="3"></textarea>
+              </div>
+
+              <div class="toggle-options">
+                <label class="toggle-item">
+                  <span>Include SEO optimization</span>
+                  <div class="toggle active" id="toggleSeo" onclick="toggleOption('seo')"><div class="toggle-thumb"></div></div>
+                </label>
+                <label class="toggle-item">
+                  <span>Add trust badges</span>
+                  <div class="toggle active" id="toggleTrust" onclick="toggleOption('trust')"><div class="toggle-thumb"></div></div>
+                </label>
+                <label class="toggle-item">
+                  <span>Include scarcity timer</span>
+                  <div class="toggle" id="toggleScarcity" onclick="toggleOption('scarcity')"><div class="toggle-thumb"></div></div>
+                </label>
+                <label class="toggle-item">
+                  <span>Add FAQ section</span>
+                  <div class="toggle active" id="toggleFaq" onclick="toggleOption('faq')"><div class="toggle-thumb"></div></div>
+                </label>
+                <label class="toggle-item">
+                  <span>Include testimonials</span>
+                  <div class="toggle active" id="toggleTestimonials" onclick="toggleOption('testimonials')"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-ghost" onclick="nextStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn btn-primary btn-generate" onclick="generateLandingPage()" id="generateBtn">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Generate with AI</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="preview-panel" id="previewPanel">
+          <div class="preview-header">
+            <div class="preview-tabs">
+              <button class="preview-tab active" onclick="switchPreview('desktop')"><i class="fas fa-desktop"></i> Desktop</button>
+              <button class="preview-tab" onclick="switchPreview('mobile')"><i class="fas fa-mobile-alt"></i> Mobile</button>
+            </div>
+            <div class="preview-actions">
+              <button class="btn btn-sm btn-ghost" onclick="copyCode()" id="copyBtn" disabled><i class="fas fa-copy"></i> Copy HTML</button>
+              <button class="btn btn-sm btn-ghost" onclick="downloadPage()" id="downloadBtn" disabled><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+
+          <div class="preview-body">
+            <div class="preview-placeholder" id="previewPlaceholder">
+              <div class="placeholder-icon">🎨</div>
+              <p>Your AI-generated landing page will appear here</p>
+              <p class="placeholder-sub">Fill in your product details and click Generate</p>
+            </div>
+            <div class="preview-frame-wrap" id="previewFrameWrap" style="display:none">
+              <iframe id="previewFrame" class="preview-frame" title="Landing Page Preview"></iframe>
+            </div>
+          </div>
+
+          <!-- SEO Panel -->
+          <div class="seo-panel" id="seoPanel" style="display:none">
+            <h4><i class="fas fa-search"></i> SEO Analysis</h4>
+            <div class="seo-score-ring">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle-fill" id="seoScoreFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <text x="18" y="20.35" class="score-text" id="seoScoreText">0</text>
+              </svg>
+            </div>
+            <div id="seoDetails"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ TEMPLATES ═══════════════════════════ -->
+  <section class="templates-section" id="templates">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">TEMPLATE MARKETPLACE</span>
+        <h2 class="section-title">300+ High-Converting<br /><span class="text-gradient">Templates</span></h2>
+        <p class="section-subtitle">Start with a proven template, then let AI customize it to your brand and product in seconds.</p>
+      </div>
+
+      <div class="template-categories" id="templateCategories">
+        <button class="tcat-btn active" onclick="filterTemplates('all')">All</button>
+        <button class="tcat-btn" onclick="filterTemplates('fashion')">Fashion</button>
+        <button class="tcat-btn" onclick="filterTemplates('beauty')">Beauty</button>
+        <button class="tcat-btn" onclick="filterTemplates('electronics')">Electronics</button>
+        <button class="tcat-btn" onclick="filterTemplates('fitness')">Fitness</button>
+        <button class="tcat-btn" onclick="filterTemplates('home')">Home & Garden</button>
+        <button class="tcat-btn" onclick="filterTemplates('automotive')">Automotive</button>
+        <button class="tcat-btn" onclick="filterTemplates('education')">Education</button>
+        <button class="tcat-btn" onclick="filterTemplates('saas')">SaaS</button>
+        <button class="tcat-btn" onclick="filterTemplates('finance')">Finance</button>
+      </div>
+
+      <div class="templates-grid" id="templatesGrid">
+        <!-- Populated by templates.js -->
+      </div>
+
+      <div class="templates-cta">
+        <button class="btn btn-primary btn-xl" onclick="showAllTemplates()">
+          <i class="fas fa-th-large"></i> Browse All Templates
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ LANGUAGES ═══════════════════════════ -->
+  <section class="languages-section" id="languages">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">MULTILINGUAL</span>
+        <h2 class="section-title">Sell in <span class="text-gradient">Any Language</span></h2>
+        <p class="section-subtitle">iBux generates native-quality copy in 7 languages, with RTL support for Arabic. Reach customers worldwide without a translator.</p>
+      </div>
+
+      <div class="languages-grid">
+        <div class="lang-card lang-card--featured" data-lang="en">
+          <div class="lang-flag">🇺🇸</div>
+          <div class="lang-name">English</div>
+          <div class="lang-demo">"Transform Your Life with ProSlim — The #1 Weight Loss Solution Trusted by 100,000+ Customers"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+        <div class="lang-card" data-lang="ar">
+          <div class="lang-flag">🇸🇦</div>
+          <div class="lang-name">العربية</div>
+          <div class="lang-demo" dir="rtl">"غيّر حياتك مع برو سليم — الحل الأول لإنقاص الوزن الموثوق به من قِبَل أكثر من 100,000 عميل"</div>
+          <div class="lang-badge">RTL Support</div>
+        </div>
+        <div class="lang-card" data-lang="fr">
+          <div class="lang-flag">🇫🇷</div>
+          <div class="lang-name">Français</div>
+          <div class="lang-demo">"Transformez votre vie avec ProSlim — La solution minceur #1 approuvée par 100 000+ clients"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+        <div class="lang-card" data-lang="es">
+          <div class="lang-flag">🇪🇸</div>
+          <div class="lang-name">Español</div>
+          <div class="lang-demo">"Transforma tu vida con ProSlim — La solución #1 para perder peso, confiada por más de 100,000 clientes"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+        <div class="lang-card" data-lang="de">
+          <div class="lang-flag">🇩🇪</div>
+          <div class="lang-name">Deutsch</div>
+          <div class="lang-demo">"Verändere dein Leben mit ProSlim — Die #1 Gewichtsabnahme-Lösung, der über 100.000 Kunden vertrauen"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+        <div class="lang-card" data-lang="pt">
+          <div class="lang-flag">🇧🇷</div>
+          <div class="lang-name">Português</div>
+          <div class="lang-demo">"Transforme sua vida com ProSlim — A solução #1 para perda de peso confiada por mais de 100.000 clientes"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+        <div class="lang-card" data-lang="it">
+          <div class="lang-flag">🇮🇹</div>
+          <div class="lang-name">Italiano</div>
+          <div class="lang-demo">"Trasforma la tua vita con ProSlim — La soluzione #1 per la perdita di peso di cui si fidano oltre 100.000 clienti"</div>
+          <div class="lang-badge">Native</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ANALYTICS ═══════════════════════════ -->
+  <section class="analytics-section" id="analytics">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">ANALYTICS</span>
+        <h2 class="section-title">Data-Driven<br /><span class="text-gradient">Decisions</span></h2>
+        <p class="section-subtitle">Track every click, conversion, and dollar. Our analytics dashboard gives you the insights to continuously optimize your pages.</p>
+      </div>
+
+      <div class="analytics-dashboard">
+        <div class="analytics-header-bar">
+          <div class="analytics-title-row">
+            <h3>Landing Page Performance</h3>
+            <div class="date-range-btns">
+              <button class="drb active" onclick="setDateRange('7d',this)">7D</button>
+              <button class="drb" onclick="setDateRange('30d',this)">30D</button>
+              <button class="drb" onclick="setDateRange('90d',this)">90D</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-kpis">
+          <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-eye"></i></div>
+            <div class="kpi-data">
+              <div class="kpi-num" id="kpiViews">12,847</div>
+              <div class="kpi-label">Page Views</div>
+              <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> +24%</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-mouse-pointer"></i></div>
+            <div class="kpi-data">
+              <div class="kpi-num" id="kpiClicks">3,421</div>
+              <div class="kpi-label">CTA Clicks</div>
+              <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> +18%</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-shopping-cart"></i></div>
+            <div class="kpi-data">
+              <div class="kpi-num" id="kpiConversions">891</div>
+              <div class="kpi-label">Conversions</div>
+              <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> +31%</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-percent"></i></div>
+            <div class="kpi-data">
+              <div class="kpi-num" id="kpiCvr">6.93%</div>
+              <div class="kpi-label">Conv. Rate</div>
+              <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> +2.1%</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="kpi-data">
+              <div class="kpi-num" id="kpiRevenue">$44,550</div>
+              <div class="kpi-label">Revenue</div>
+              <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> +37%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-area">
+          <canvas id="analyticsChart"></canvas>
+        </div>
+
+        <div class="analytics-bottom">
+          <div class="ab-test-panel">
+            <h4><i class="fas fa-flask"></i> A/B Tests Running</h4>
+            <div class="ab-test">
+              <div class="ab-test-info">
+                <span class="ab-label">Headline Test</span>
+                <span class="ab-status active-badge">Active</span>
+              </div>
+              <div class="ab-bars">
+                <div class="ab-bar">
+                  <span>Variant A</span>
+                  <div class="ab-progress"><div class="ab-fill ab-a" style="width:54%"></div></div>
+                  <span>54%</span>
+                </div>
+                <div class="ab-bar">
+                  <span>Variant B</span>
+                  <div class="ab-progress"><div class="ab-fill ab-b" style="width:46%"></div></div>
+                  <span>46%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="traffic-sources">
+            <h4><i class="fas fa-share-alt"></i> Traffic Sources</h4>
+            <div class="source-list" id="sourceList">
+              <div class="source-item">
+                <div class="source-icon"><i class="fab fa-facebook"></i></div>
+                <div class="source-info"><span>Facebook Ads</span><div class="source-bar"><div class="sb-fill" style="width:42%"></div></div></div>
+                <span class="source-pct">42%</span>
+              </div>
+              <div class="source-item">
+                <div class="source-icon"><i class="fab fa-google"></i></div>
+                <div class="source-info"><span>Google Search</span><div class="source-bar"><div class="sb-fill" style="width:28%"></div></div></div>
+                <span class="source-pct">28%</span>
+              </div>
+              <div class="source-item">
+                <div class="source-icon"><i class="fab fa-tiktok"></i></div>
+                <div class="source-info"><span>TikTok</span><div class="source-bar"><div class="sb-fill" style="width:18%"></div></div></div>
+                <span class="source-pct">18%</span>
+              </div>
+              <div class="source-item">
+                <div class="source-icon"><i class="fas fa-envelope"></i></div>
+                <div class="source-info"><span>Email</span><div class="source-bar"><div class="sb-fill" style="width:12%"></div></div></div>
+                <span class="source-pct">12%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PRICING ═══════════════════════════ -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">PRICING</span>
+        <h2 class="section-title">Simple, Transparent<br /><span class="text-gradient">Pricing</span></h2>
+        <p class="section-subtitle">Start free. Scale as you grow. No hidden fees.</p>
+        <div class="billing-toggle">
+          <span class="billing-label" id="monthlyLabel" style="opacity:1">Monthly</span>
+          <div class="toggle active" id="billingToggle" onclick="toggleBilling()"><div class="toggle-thumb"></div></div>
+          <span class="billing-label" id="annualLabel">Annual <span class="save-badge">Save 30%</span></span>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free -->
+        <div class="price-card">
+          <div class="price-plan">Free</div>
+          <div class="price-amount"><span class="price-currency">$</span><span class="price-num">0</span><span class="price-period">/mo</span></div>
+          <p class="price-desc">Perfect for getting started</p>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> 3 landing pages/month</li>
+            <li><i class="fas fa-check"></i> 5 AI generations</li>
+            <li><i class="fas fa-check"></i> 2 languages</li>
+            <li><i class="fas fa-check"></i> Basic templates</li>
+            <li><i class="fas fa-check"></i> Basic SEO tools</li>
+            <li class="disabled"><i class="fas fa-times"></i> Analytics</li>
+            <li class="disabled"><i class="fas fa-times"></i> A/B Testing</li>
+            <li class="disabled"><i class="fas fa-times"></i> Custom domain</li>
+          </ul>
+          <a href="#builder" class="btn btn-ghost btn-full">Get Started Free</a>
+        </div>
+
+        <!-- Starter -->
+        <div class="price-card">
+          <div class="price-plan">Starter</div>
+          <div class="price-amount"><span class="price-currency">$</span><span class="price-num" data-monthly="29" data-annual="20">29</span><span class="price-period">/mo</span></div>
+          <p class="price-desc">For solo merchants & dropshippers</p>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> 20 landing pages/month</li>
+            <li><i class="fas fa-check"></i> 100 AI generations</li>
+            <li><i class="fas fa-check"></i> All 7 languages</li>
+            <li><i class="fas fa-check"></i> All templates</li>
+            <li><i class="fas fa-check"></i> Full SEO toolkit</li>
+            <li><i class="fas fa-check"></i> Analytics dashboard</li>
+            <li class="disabled"><i class="fas fa-times"></i> A/B Testing</li>
+            <li class="disabled"><i class="fas fa-times"></i> Custom domain</li>
+          </ul>
+          <a href="#builder" class="btn btn-outline btn-full">Start Starter</a>
+        </div>
+
+        <!-- Professional — Popular -->
+        <div class="price-card price-card--popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="price-plan">Professional</div>
+          <div class="price-amount"><span class="price-currency">$</span><span class="price-num" data-monthly="79" data-annual="55">79</span><span class="price-period">/mo</span></div>
+          <p class="price-desc">For serious eCommerce brands</p>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Unlimited pages</li>
+            <li><i class="fas fa-check"></i> Unlimited AI generations</li>
+            <li><i class="fas fa-check"></i> All 7 languages</li>
+            <li><i class="fas fa-check"></i> All templates</li>
+            <li><i class="fas fa-check"></i> Advanced SEO toolkit</li>
+            <li><i class="fas fa-check"></i> Advanced analytics</li>
+            <li><i class="fas fa-check"></i> A/B Testing</li>
+            <li><i class="fas fa-check"></i> Custom domain</li>
+          </ul>
+          <a href="#builder" class="btn btn-primary btn-full">Start Professional</a>
+        </div>
+
+        <!-- Agency -->
+        <div class="price-card">
+          <div class="price-plan">Agency</div>
+          <div class="price-amount"><span class="price-currency">$</span><span class="price-num" data-monthly="199" data-annual="139">199</span><span class="price-period">/mo</span></div>
+          <p class="price-desc">For agencies & power users</p>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Everything in Pro</li>
+            <li><i class="fas fa-check"></i> 25 client workspaces</li>
+            <li><i class="fas fa-check"></i> White-label option</li>
+            <li><i class="fas fa-check"></i> Priority AI processing</li>
+            <li><i class="fas fa-check"></i> Team collaboration</li>
+            <li><i class="fas fa-check"></i> API access</li>
+            <li><i class="fas fa-check"></i> Priority support</li>
+            <li><i class="fas fa-check"></i> Custom integrations</li>
+          </ul>
+          <a href="#builder" class="btn btn-outline btn-full">Start Agency</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="price-card price-card--enterprise">
+          <div class="price-plan">Enterprise</div>
+          <div class="price-amount"><span class="price-num">Custom</span></div>
+          <p class="price-desc">For large-scale operations</p>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Everything in Agency</li>
+            <li><i class="fas fa-check"></i> Unlimited workspaces</li>
+            <li><i class="fas fa-check"></i> Dedicated AI capacity</li>
+            <li><i class="fas fa-check"></i> SLA guarantee</li>
+            <li><i class="fas fa-check"></i> Custom AI training</li>
+            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+            <li><i class="fas fa-check"></i> On-premise option</li>
+            <li><i class="fas fa-check"></i> 24/7 phone support</li>
+          </ul>
+          <a href="mailto:salatrir@gmail.com" class="btn btn-ghost btn-full">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ TESTIMONIALS ═══════════════════════════ -->
+  <section class="testimonials-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">SOCIAL PROOF</span>
+        <h2 class="section-title">Trusted by <span class="text-gradient">50,000+</span> Merchants</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"iBux generated a complete Arabic landing page for my Saudi customers in under 2 minutes. My conversion rate jumped from 1.2% to 4.8%. This is insane."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <div class="author-name">Ahmed M.</div>
+              <div class="author-title">Dropshipper, UAE</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="stars">★★★★★</div>
+          <p>"I run 15 Shopify stores across 3 languages. iBux cut my landing page creation time from 3 days to 10 minutes per page. The ROI is off the charts."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SK</div>
+            <div>
+              <div class="author-name">Sophie K.</div>
+              <div class="author-title">eCommerce Agency Owner, France</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The AI copywriter writes better product descriptions than our in-house team. We now use iBux for all our Amazon listing optimizations and TikTok pages."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JR</div>
+            <div>
+              <div class="author-name">James R.</div>
+              <div class="author-title">Amazon FBA Seller, UK</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Our Spanish landing pages now outperform our English ones thanks to iBux. The native-quality copy resonates so much better with our Latin American audience."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MC</div>
+            <div>
+              <div class="author-name">Maria C.</div>
+              <div class="author-title">Fashion Brand, Mexico</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The SEO toolkit alone is worth the price. My organic traffic tripled after using iBux to optimize all my landing pages. Now I'm ranking #1 for my main keywords."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">TL</div>
+            <div>
+              <div class="author-name">Thomas L.</div>
+              <div class="author-title">Affiliate Marketer, Germany</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"iBux is the secret weapon of our digital agency. We deliver client landing pages 10x faster and the results speak for themselves. Every client is crushing it."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RP</div>
+            <div>
+              <div class="author-name">Rafael P.</div>
+              <div class="author-title">Digital Agency CEO, Brazil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+  <section class="faq-section" id="faq">
+    <div class="section-container section-container--narrow">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Got <span class="text-gradient">Questions?</span></h2>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
+  <section class="cta-banner">
+    <div class="cta-banner-bg">
+      <div class="cta-glow"></div>
+    </div>
+    <div class="section-container cta-content">
+      <h2 class="cta-title">Ready to Build Pages That <span class="text-gradient">Convert?</span></h2>
+      <p class="cta-subtitle">Join 50,000+ merchants already using iBux to generate high-converting landing pages in minutes, not days.</p>
+      <div class="cta-actions">
+        <a href="#builder" class="btn btn-primary btn-xl">
+          <i class="fas fa-wand-magic-sparkles"></i> Start Building Free
+        </a>
+        <a href="mailto:salatrir@gmail.com" class="btn btn-ghost btn-xl">
+          <i class="fas fa-envelope"></i> Talk to Sales
+        </a>
+      </div>
+      <p class="cta-note"><i class="fas fa-lock"></i> No credit card required · Free plan available · Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">iBux</span>
+          </a>
+          <p>AI-powered landing page builder for eCommerce merchants worldwide. Generate high-converting pages in any language, instantly.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/YOUR_USERNAME/ibux" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#templates">Templates</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#builder">AI Builder</a>
+            <a href="#analytics">Analytics</a>
+          </div>
+          <div class="footer-col">
+            <h4>Solutions</h4>
+            <a href="#">Shopify Merchants</a>
+            <a href="#">WooCommerce</a>
+            <a href="#">Amazon Sellers</a>
+            <a href="#">TikTok Shop</a>
+            <a href="#">Agencies</a>
+            <a href="#">Dropshippers</a>
+          </div>
+          <div class="footer-col">
+            <h4>Languages</h4>
+            <a href="#">English</a>
+            <a href="#">Arabic (عربي)</a>
+            <a href="#">French</a>
+            <a href="#">Spanish</a>
+            <a href="#">German</a>
+            <a href="#">Portuguese</a>
+            <a href="#">Italian</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="mailto:salatrir@gmail.com"><i class="fas fa-envelope"></i> salatrir@gmail.com</a>
+            <a href="#">Documentation</a>
+            <a href="#">API Reference</a>
+            <a href="#">Status Page</a>
+            <a href="#">Community</a>
+            <a href="#">Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 iBux · ibux.xyz · All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="mailto:salatrir@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════ MODALS ═══════════════════════════ -->
+  <div class="modal-overlay" id="demoModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('demoModal')"><i class="fas fa-times"></i></button>
+      <h3>🎬 iBux Platform Demo</h3>
+      <div class="demo-video-placeholder">
+        <div class="play-btn"><i class="fas fa-play"></i></div>
+        <p>Demo video would embed here</p>
+      </div>
+      <p>Experience the power of AI landing page generation — from product details to a complete, conversion-optimized page in under 30 seconds.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="templateModal">
+    <div class="modal modal--large">
+      <button class="modal-close" onclick="closeModal('templateModal')"><i class="fas fa-times"></i></button>
+      <h3 id="templateModalTitle">Template Preview</h3>
+      <div id="templateModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="translations.js"></script>
+  <script src="templates.js"></script>
+  <script src="ai-copywriter.js"></script>
+  <script src="seo-tools.js"></script>
+  <script src="analytics.js"></script>
+  <script src="landing-builder.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
