@@ -1,6 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   iBux — ai-copywriter.js | AI Copy Generation via Claude API
+   iBux — ai-copywriter.js | AI Copy Generation via Gemini API
    ═══════════════════════════════════════════════════════════════ */
+
+const GEMINI_API_KEY = "AQ.Ab8RN6I2ujc0PkMO96H6SFxkP0hIJhJxcF7d0NPppV3cLheihQ";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
 const LANG_NAMES = {
   en: 'English', ar: 'Arabic', fr: 'French',
@@ -8,16 +11,16 @@ const LANG_NAMES = {
 };
 
 const PAGE_TYPE_LABELS = {
-  product: 'Product Landing Page',
-  sales: 'Sales Page',
-  lead: 'Lead Generation Page',
-  webinar: 'Webinar Registration Page',
-  affiliate: 'Affiliate Review Page',
-  service: 'Service Page'
+  product:  'Product Landing Page',
+  sales:    'Sales Page',
+  lead:     'Lead Generation Page',
+  webinar:  'Webinar Registration Page',
+  affiliate:'Affiliate Review Page',
+  service:  'Service Page'
 };
 
 /**
- * Core AI copy generator — calls Claude claude-sonnet-4-20250514 API
+ * Core AI copy generator — calls Gemini 2.0 Flash API
  * Returns structured JSON with all copy blocks for the page.
  */
 async function generateAICopy(params) {
@@ -27,8 +30,8 @@ async function generateAICopy(params) {
     includeSeo, includeTrust, includeScarcity, includeFaq, includeTestimonials
   } = params;
 
-  const langName = LANG_NAMES[targetLanguage] || 'English';
-  const pageTypeLabel = PAGE_TYPE_LABELS[pageType] || 'Landing Page';
+  const langName     = LANG_NAMES[targetLanguage]    || 'English';
+  const pageTypeLabel = PAGE_TYPE_LABELS[pageType]   || 'Landing Page';
 
   const prompt = buildCopyPrompt({
     productName, productCategory, productBenefits, productPrice,
@@ -37,29 +40,47 @@ async function generateAICopy(params) {
     targetLanguage
   });
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const systemInstruction = `You are an expert eCommerce copywriter and landing page specialist.
+You write high-converting copy that follows direct response marketing best practices.
+IMPORTANT: Respond ONLY with valid JSON — no preamble, no explanation, no markdown code blocks, no backticks.
+Write ALL copy in ${langName}.${targetLanguage === 'ar' ? ' Use right-to-left Arabic script.' : ''}`;
+
+  const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      system: `You are an expert eCommerce copywriter and landing page specialist.
-You write high-converting copy that follows direct response marketing best practices.
-Always respond ONLY with valid JSON — no preamble, no markdown, no backticks.
-Write ALL copy in ${langName}. ${targetLanguage === 'ar' ? 'Use right-to-left Arabic script.' : ''}`,
-      messages: [{ role: "user", content: prompt }]
+      system_instruction: {
+        parts: [{ text: systemInstruction }]
+      },
+      contents: [{
+        role: "user",
+        parts: [{ text: prompt }]
+      }],
+      generationConfig: {
+        temperature: 0.8,
+        maxOutputTokens: 2048,
+        responseMimeType: "application/json"
+      }
     })
   });
 
-  if (!response.ok) throw new Error(`API error: ${response.status}`);
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Gemini API error ${response.status}: ${errText}`);
+  }
+
   const data = await response.json();
 
-  const rawText = data.content
-    .filter(b => b.type === 'text')
-    .map(b => b.text)
-    .join('');
+  // Extract text from Gemini response structure
+  const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  if (!rawText) throw new Error('Empty response from Gemini API');
 
-  const clean = rawText.replace(/```json|```/g, '').trim();
+  // Clean and parse JSON
+  const clean = rawText
+    .replace(/```json[\s\S]*?```/g, m => m.replace(/```json|```/g, ''))
+    .replace(/```/g, '')
+    .trim();
+
   return JSON.parse(clean);
 }
 
@@ -82,59 +103,59 @@ OPTIONS:
 - Include FAQ: ${p.includeFaq}
 - Include testimonials: ${p.includeTestimonials}
 
-Generate ONLY a JSON object with this exact structure:
+Return ONLY a JSON object with this exact structure (no extra text, no markdown):
 {
   "hero": {
     "headline": "Primary attention-grabbing headline (max 12 words)",
     "subheadline": "Supporting subheadline with key benefit (max 20 words)",
     "body": "2-3 sentence hero body copy",
     "cta_primary": "Primary CTA button text (2-4 words)",
-    "cta_secondary": "Secondary CTA (optional)"
+    "cta_secondary": "Secondary CTA (optional, or empty string)"
   },
   "benefits": [
     {"icon": "fa-check-circle", "title": "Benefit title", "desc": "1-2 sentence benefit description"},
-    {"icon": "fa-bolt", "title": "Benefit title", "desc": "1-2 sentence benefit description"},
-    {"icon": "fa-shield-alt", "title": "Benefit title", "desc": "1-2 sentence benefit description"},
-    {"icon": "fa-star", "title": "Benefit title", "desc": "1-2 sentence benefit description"}
+    {"icon": "fa-bolt",         "title": "Benefit title", "desc": "1-2 sentence benefit description"},
+    {"icon": "fa-shield-alt",   "title": "Benefit title", "desc": "1-2 sentence benefit description"},
+    {"icon": "fa-star",         "title": "Benefit title", "desc": "1-2 sentence benefit description"}
   ],
   "social_proof": {
-    "count": "Number with + (e.g. 10,000+)",
+    "count": "Number with + e.g. 10,000+",
     "label": "Customers/Users/Members etc."
   },
   "offer": {
     "headline": "Offer section headline",
-    "original_price": "Crossed-out price (if applicable)",
-    "sale_price": "Sale price",
-    "savings": "Amount/% saved",
-    "urgency": "Urgency line (e.g. Only 47 left in stock!)",
-    "guarantee": "Guarantee text (e.g. 60-Day Money Back Guarantee)"
+    "original_price": "Crossed-out original price",
+    "sale_price": "Sale price string",
+    "savings": "Amount or % saved",
+    "urgency": "Urgency line e.g. Only 47 left in stock!",
+    "guarantee": "Guarantee text e.g. 60-Day Money Back Guarantee"
   },
   "testimonials": ${p.includeTestimonials ? `[
-    {"name": "Name, Location", "stars": 5, "text": "Compelling testimonial", "avatar": "initials"},
-    {"name": "Name, Location", "stars": 5, "text": "Compelling testimonial", "avatar": "initials"},
-    {"name": "Name, Location", "stars": 5, "text": "Compelling testimonial", "avatar": "initials"}
+    {"name": "Full Name, Country", "stars": 5, "text": "Compelling 2-3 sentence testimonial", "avatar": "XX"},
+    {"name": "Full Name, Country", "stars": 5, "text": "Compelling 2-3 sentence testimonial", "avatar": "XX"},
+    {"name": "Full Name, Country", "stars": 5, "text": "Compelling 2-3 sentence testimonial", "avatar": "XX"}
   ]` : '[]'},
   "faq": ${p.includeFaq ? `[
-    {"q": "Question 1?", "a": "Detailed answer 1"},
-    {"q": "Question 2?", "a": "Detailed answer 2"},
-    {"q": "Question 3?", "a": "Detailed answer 3"},
-    {"q": "Question 4?", "a": "Detailed answer 4"}
+    {"q": "Question 1?", "a": "Detailed helpful answer 1"},
+    {"q": "Question 2?", "a": "Detailed helpful answer 2"},
+    {"q": "Question 3?", "a": "Detailed helpful answer 3"},
+    {"q": "Question 4?", "a": "Detailed helpful answer 4"}
   ]` : '[]'},
   "trust_badges": ${p.includeTrust ? `["Secure Checkout", "Money Back Guarantee", "Fast Shipping", "24/7 Support"]` : '[]'},
-  "scarcity": ${p.includeScarcity ? `{"headline": "Scarcity headline", "subtext": "scarcity subtext"}` : 'null'},
+  "scarcity": ${p.includeScarcity ? `{"headline": "Scarcity urgency headline", "subtext": "Supporting scarcity subtext"}` : 'null'},
   "seo": ${p.includeSeo ? `{
-    "meta_title": "SEO meta title (50-60 chars)",
-    "meta_description": "SEO meta description (150-160 chars)",
+    "meta_title": "SEO optimized title 50-60 characters",
+    "meta_description": "SEO meta description 150-160 characters",
     "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
   }` : 'null'},
   "upsell": {
-    "headline": "Upsell section headline",
-    "desc": "Upsell description"
+    "headline": "Upsell offer headline",
+    "desc": "Short upsell description"
   },
   "footer_cta": {
     "headline": "Final CTA headline",
-    "subtext": "Final CTA subtext",
-    "button": "Final CTA button text"
+    "subtext": "Final CTA supporting text",
+    "button": "Final button text"
   }
 }`;
 }
@@ -145,12 +166,12 @@ Generate ONLY a JSON object with this exact structure:
 function buildLandingPageHTML(copyData, params) {
   const { targetLanguage, productName, productPrice } = params;
   const isRTL = targetLanguage === 'ar';
-  const dir = isRTL ? 'rtl' : 'ltr';
-  const h = copyData.hero || {};
-  const offer = copyData.offer || {};
+  const dir   = isRTL ? 'rtl' : 'ltr';
+  const h     = copyData.hero          || {};
+  const offer = copyData.offer         || {};
   const scarcity = copyData.scarcity;
-  const social = copyData.social_proof || {};
-  const seo = copyData.seo || {};
+  const social   = copyData.social_proof || {};
+  const seo      = copyData.seo          || {};
 
   const trustBadges = (copyData.trust_badges || []).map(badge => `
     <div class="lp-badge"><i class="fas fa-shield-check"></i> ${badge}</div>
@@ -159,25 +180,22 @@ function buildLandingPageHTML(copyData, params) {
   const benefits = (copyData.benefits || []).map(b => `
     <div class="lp-benefit">
       <div class="lp-benefit-icon"><i class="fas ${b.icon}"></i></div>
-      <div>
-        <h4>${b.title}</h4>
-        <p>${b.desc}</p>
-      </div>
+      <div><h4>${b.title}</h4><p>${b.desc}</p></div>
     </div>
   `).join('');
 
   const testimonials = (copyData.testimonials || []).map(t => `
     <div class="lp-testimonial">
-      <div class="lp-stars">${'★'.repeat(t.stars)}</div>
+      <div class="lp-stars">${'★'.repeat(t.stars || 5)}</div>
       <p>"${t.text}"</p>
       <div class="lp-author">
-        <div class="lp-avatar">${t.avatar || t.name.substring(0,2)}</div>
+        <div class="lp-avatar">${t.avatar || (t.name || 'XX').substring(0,2).toUpperCase()}</div>
         <span>${t.name}</span>
       </div>
     </div>
   `).join('');
 
-  const faqs = (copyData.faq || []).map((f, i) => `
+  const faqs = (copyData.faq || []).map((f) => `
     <div class="lp-faq-item">
       <button class="lp-faq-q" onclick="this.parentElement.classList.toggle('open')">
         ${f.q} <i class="fas fa-chevron-down"></i>
@@ -204,8 +222,9 @@ function buildLandingPageHTML(copyData, params) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>${seo.meta_title || productName}</title>
+<title>${seo.meta_title || productName || 'Landing Page'}</title>
 ${seo.meta_description ? `<meta name="description" content="${seo.meta_description}"/>` : ''}
+${seo.keywords ? `<meta name="keywords" content="${seo.keywords.join(', ')}"/>` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -286,7 +305,7 @@ ${scarcityBlock}
 
 <section class="lp-hero">
   <h1>${h.headline || productName}</h1>
-  <p>${h.subheadline || h.body}</p>
+  <p>${h.subheadline || h.body || ''}</p>
   <div style="margin-top:2rem">
     <a href="#offer" class="lp-cta-btn">
       <i class="fas fa-shopping-cart"></i>
@@ -362,18 +381,17 @@ ${faqs ? `
 </footer>
 
 <script>
-// Countdown timer
 (function(){
   const el = document.getElementById('lpCountdown');
   if(!el) return;
   let t = 23*3600 + 47*60 + 12;
-  setInterval(()=>{
-    t = Math.max(0,t-1);
-    const h = String(Math.floor(t/3600)).padStart(2,'0');
-    const m = String(Math.floor((t%3600)/60)).padStart(2,'0');
-    const s = String(t%60).padStart(2,'0');
-    el.textContent = h+':'+m+':'+s;
-  },1000);
+  setInterval(function(){
+    t = Math.max(0, t - 1);
+    const hh = String(Math.floor(t / 3600)).padStart(2,'0');
+    const mm = String(Math.floor((t % 3600) / 60)).padStart(2,'0');
+    const ss = String(t % 60).padStart(2,'0');
+    el.textContent = hh + ':' + mm + ':' + ss;
+  }, 1000);
 })();
 </script>
 </body>
